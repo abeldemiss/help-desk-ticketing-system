@@ -29,3 +29,7 @@ This project is a comprehensive home lab setup focused on creating a help desk e
 ## Contributing
 
 Feel free to contribute to this project by submitting pull requests or creating issues for any improvements you'd like to suggest.
+
+## License
+
+This project is open source and available under the MIT License.
