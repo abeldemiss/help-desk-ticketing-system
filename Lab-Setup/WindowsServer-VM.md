@@ -3,7 +3,7 @@
 ## Prerequisites
 
 - VMware Workstation Pro 17.x installed
-- Windows Server 2022/2019 ISO file downloaded
+- Windows Server 2022 ISO file downloaded
 - Minimum host system requirements:
   - 16GB RAM (32GB recommended)
   - 4 CPU cores (8 recommended)
