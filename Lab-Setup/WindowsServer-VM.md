@@ -24,7 +24,7 @@
    - Click `Next`
 
 ### 2. VM Name and Location
-1. Enter VM Name: `DC01` (or your preferred name)
+1. Enter VM Name: `SRV-DC01` (or your preferred name)
 2. Location: Choose your VM storage location
 3. Click `Next`
 
