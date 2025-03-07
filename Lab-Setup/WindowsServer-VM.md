@@ -128,9 +128,6 @@
 
 After completing this setup:
 1. Proceed to `Active-Directory.md` for DC promotion
-2. Configure Windows Firewall settings
-3. Set up backup schedule
-4. Document IP configuration
 
 ## Troubleshooting
 

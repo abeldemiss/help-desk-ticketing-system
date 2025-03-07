@@ -17,7 +17,8 @@
    - Click `Next`
    - Complete the wizard and click `Install`
 
-![AD DS Installation](../Screenshots/ad-installation.png)
+![AD DS Installation](ad-setup/Screenshot 2025-03-06 182102.png)
+
 > Screenshot: Add Roles and Features Wizard with Active Directory Domain Services selected
 
 ## Step 2: Promote the Server to a Domain Controller
@@ -26,14 +27,14 @@
    - Click the Notification flag in Server Manager
    - Select `Promote this server to a domain controller`
 
-![DC Promotion](../Screenshots/dc-promotion-notification.png)
+![DC Promotion](../Screenshots/ad-setup)
 > Screenshot: Notification flag with "Promote this server to a domain controller" option
 
 2. Deployment Configuration:
    - Select `Add a new forest`
    - Enter root domain name (e.g., `mydomain.local`)
 
-![Domain Configuration](../Screenshots/domain-configuration.png)
+![Domain Configuration](../Screenshots/ad-setup)
 > Screenshot: Deployment Configuration screen with domain name entered
 
 3. Domain Controller Options:
@@ -41,14 +42,14 @@
    - Enter DSRM password (e.g., `P@ssw0rd123`)
    - Note: Use a strong password in production
 
-![DC Options](../Screenshots/dc-options.png)
+![DC Options](../Screenshots/ad-setup)
 > Screenshot: Domain Controller Options screen with functional levels and DSRM password
 
 4. Additional Configuration:
    - Click `Next` at DNS delegation warnings
    - Verify NetBIOS domain name (e.g., `MYDOMAIN`)
 
-![NetBIOS Name](../Screenshots/netbios-name.png)
+![NetBIOS Name](../Screenshots/ad-setup)
 > Screenshot: Additional Options screen showing NetBIOS domain name
 
 5. Paths Configuration:
@@ -57,14 +58,14 @@
      - Log files
      - SYSVOL
 
-![AD Paths](../Screenshots/ad-paths.png)
+![AD Paths](../Screenshots/ad-setup)
 > Screenshot: Paths screen with default locations
 
 6. Prerequisites Check:
    - Review for any errors/warnings
    - Click `Install` to begin promotion
 
-![Prerequisites](../Screenshots/prerequisites-check.png)
+![Prerequisites](../Screenshots/ad-setup)
 > Screenshot: Prerequisites Check screen showing successful validation
 
 7. Wait for installation and automatic restart
@@ -78,7 +79,7 @@
    - Go to `Tools` → `Active Directory Users and Computers`
    - Verify domain is listed
 
-![AD Verification](../Screenshots/ad-verification.png)
+![AD Verification](../Screenshots/ad-setup)
 > Screenshot: Active Directory Users and Computers showing the domain
 
 ## Step 4: Create Test Users in Active Directory
@@ -98,7 +99,7 @@
    - Password: P@ssw0rd123
    ```
 
-![Test Users](../Screenshots/test-users.png)
+![Test Users](../Screenshots/ad-setup)
 > Screenshot: Employees OU with test users created
 
 ## Step 5: Join Windows 10 VM to Domain
@@ -113,7 +114,7 @@
    - Enter domain name (e.g., `mydomain.local`)
    - Click `OK`
 
-![Domain Join](../Screenshots/domain-join.png)
+![Domain Join](../Screenshots/ad-setup)
 > Screenshot: Computer Name/Domain Changes window with domain name
 
 3. Enter Domain Admin Credentials:
@@ -123,7 +124,7 @@
    Domain: mydomain.local
    ```
 
-![Domain Credentials](../Screenshots/domain-credentials.png)
+![Domain Credentials](../Screenshots/ad-setup)
 > Screenshot: Windows Security prompt for credentials
 
 4. Restart when prompted
@@ -136,7 +137,7 @@
    systeminfo | findstr /B /C:"Domain"
    ```
 
-![Domain Verification](../Screenshots/domain-verification.png)
+![Domain Verification](../Screenshots/ad-setup)
 > Screenshot: systeminfo command showing domain membership
 
 ## Step 7: Configure DNS Settings
@@ -161,7 +162,7 @@
    - Set Alternate DNS server to: 8.8.8.8 (optional)
    - Click `OK`
 
-![DC DNS Settings](../Screenshots/dc-dns-settings.png)
+![DC DNS Settings](../Screenshots/ad-setup)
 > Screenshot: Domain Controller's DNS configuration
 
 3. Verify DNS Configuration:
@@ -185,7 +186,7 @@
    - Set Alternate DNS server to: 8.8.8.8 (optional)
    - Click `OK`
 
-![Client DNS Settings](../Screenshots/client-dns-settings.png)
+![Client DNS Settings](../Screenshots/ad-setup)
 > Screenshot: Windows 10 DNS configuration
 
 2. Verify Client DNS Configuration:
@@ -243,7 +244,7 @@
      - Set permission level to `Read/Write`
      - Click `Share` then `Done`
 
-![Share Settings](../Screenshots/share-settings.png)
+![Share Settings](../Screenshots/ad-setup)
 > Screenshot: Sharing tab and Network Access window
 
 4. Configure NTFS permissions:
@@ -252,7 +253,7 @@
    - Assign `Read/Write` permissions
    - Click `OK`
 
-![Security Settings](../Screenshots/security-settings.png)
+![Security Settings](../Screenshots/ad-setup)
 > Screenshot: Security tab showing permissions
 
 ### 8.2 Access Shared Folder from Windows 10 VM
@@ -268,7 +269,7 @@
      - Turn off password protected sharing
    - Click `Save changes`
 
-![Server Network Settings](../Screenshots/server-network-settings.png)
+![Server Network Settings](../Screenshots/ad-setup)
 > Screenshot: Windows Server advanced sharing settings
 
 2. Enable Network Discovery on Windows 10 VM:
@@ -281,7 +282,7 @@
      - File and printer sharing
    - Click `Save changes`
 
-![Client Network Settings](../Screenshots/client-network-settings.png)
+![Client Network Settings](../Screenshots/ad-setup)
 > Screenshot: Windows 10 advanced sharing settings
 
 3. Access Shared Folder:
@@ -296,7 +297,7 @@
 
 4. Test permissions by creating a new file
 
-![Shared Access](../Screenshots/shared-access.png)
+![Shared Access](../Screenshots/ad-setup)
 > Screenshot: File Explorer showing shared folder access
 
 ## Step 9: Configure and Test Group Policy
@@ -313,7 +314,7 @@
    - Name: `Password Policy`
    - Click `OK`
 
-![New GPO](../Screenshots/new-gpo.png)
+![New GPO](../Screenshots/ad-setup)
 > Screenshot: New GPO creation window
 
 3. Configure GPO:
@@ -330,7 +331,7 @@
    - Set `Minimum password length` to `8`
    - Click `OK`
 
-![GPO Settings](../Screenshots/gpo-settings.png)
+![GPO Settings](../Screenshots/ad-setup)
 > Screenshot: Group Policy Management Editor showing password policy
 
 ### 9.2 Link GPO to Domain
@@ -341,7 +342,7 @@
    - Choose `Password Policy`
    - Click `OK`
 
-![Link GPO](../Screenshots/link-gpo.png)
+![Link GPO](../Screenshots/ad-setup)
 > Screenshot: Link an Existing GPO window
 
 ### 9.3 Apply and Verify GPO
@@ -354,7 +355,7 @@
      gpupdate /force
      ```
 
-![GPO Update](../Screenshots/gpo-update.png)
+![GPO Update](../Screenshots/ad-setup)
 > Screenshot: Command Prompt showing gpupdate command
 
 2. Restart Windows 10 VM
@@ -368,7 +369,7 @@
      ```
    - Verify `Password Policy` appears under Applied GPOs
 
-![GPO Result](../Screenshots/gpo-result.png)
+![GPO Result](../Screenshots/ad-setup)
 > Screenshot: gpresult output showing applied GPO
 
 
