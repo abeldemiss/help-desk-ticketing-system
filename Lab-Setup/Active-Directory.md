@@ -17,7 +17,7 @@
    - Click `Next`
    - Complete the wizard and click `Install`
 
-![AD DS Installation](../Screenshots/ad-setup/Screenshot 2025-03-06 182102)
+![AD DS Installation](Screenshots/ad-setup/Screenshot 2025-03-06 182102)
 > Screenshot: Add Roles and Features Wizard with Active Directory Domain Services selected
 
 ## Step 2: Promote the Server to a Domain Controller
