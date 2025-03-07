@@ -154,4 +154,4 @@ After completing this setup:
 ### Support Resources
 - [VMware Workstation Documentation](https://docs.vmware.com/en/VMware-Workstation-Pro/index.html)
 - [Windows Server Documentation](https://docs.microsoft.com/en-us/windows-server/)
-- [Microsoft Support](https://support.microsoft.com/)
+- [Microsoft Support](https://support.microsoft.com/).
