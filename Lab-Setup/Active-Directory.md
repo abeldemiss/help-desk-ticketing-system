@@ -25,26 +25,26 @@
    - Click the Notification flag in Server Manager
    - Select `Promote this server to a domain controller`
 
-![DC Promotion](../Screenshots/ad-setup/promote.png)
+![DC Promotion](Screenshots/ad-setup/promote.png)
 
 2. Deployment Configuration:
    - Select `Add a new forest`
    - Enter root domain name (e.g., `mydomain.local`)
 
-![Domain Configuration](../Screenshots/ad-setup/forest.png)
+![Domain Configuration](Screenshots/ad-setup/forest.png)
 
 3. Domain Controller Options:
    - Set Forest and Domain Functional Levels to `Windows Server 2016`
    - Enter DSRM password (e.g., `P@ssw0rd123`)
    - Note: Use a strong password in production
 
-![DC Options](../Screenshots/ad-setup/function.png)
+![DC Options](Screenshots/ad-setup/function.png)
 
 4. Additional Configuration:
    - Click `Next` at DNS delegation warnings
    - Verify NetBIOS domain name (e.g., `MYDOMAIN`)
 
-![NetBIOS Name](../Screenshots/ad-setup/domain-name.png)
+![NetBIOS Name](Screenshots/ad-setup/domain-name.png)
 
 5. Paths Configuration:
    - Leave default paths for:
@@ -52,13 +52,13 @@
      - Log files
      - SYSVOL
 
-![AD Paths](../Screenshots/ad-setup/paths.png)
+![AD Paths](Screenshots/ad-setup/paths.png)
 
 6. Prerequisites Check:
    - Review for any errors/warnings
    - Click `Install` to begin promotion
 
-![Prerequisites](../Screenshots/ad-setup/prereq.png)
+![Prerequisites](Screenshots/ad-setup/prereq.png)
 
 
 7. Wait for installation and automatic restart
@@ -72,7 +72,7 @@
    - Go to `Tools` → `Active Directory Users and Computers`
    - Verify domain is listed
 
-![AD Verification](../Screenshots/ad-setup/verify.png)
+![AD Verification](Screenshots/ad-setup/verify.png)
 > Screenshot: Active Directory Users and Computers showing the domain
 
 ## Step 4: Create Test Users in Active Directory
@@ -92,7 +92,7 @@
    - Password: P@ssw0rd123
    ```
 
-![Test Users](../Screenshots/ad-setup/users.png)
+![Test Users](Screenshots/ad-setup/users.png)
 
 ## Step 5: Join Windows 10 VM to Domain
 
@@ -122,7 +122,7 @@
    systeminfo | findstr /B /C:"Domain"
    ```
 
-![Domain Verification](../Screenshots/ad-setup/join.png)
+![Domain Verification](Screenshots/ad-setup/join.png)
 
 ## Step 7: Configure DNS Settings
 
@@ -222,7 +222,7 @@
      - Set permission level to `Read/Write`
      - Click `Share` then `Done`
 
-![Share Settings](../Screenshots/ad-setup/share.png)
+![Share Settings](Screenshots/ad-setup/share.png)
 
 
 4. Configure NTFS permissions:
@@ -231,7 +231,7 @@
    - Assign `Read/Write` permissions
    - Click `OK`
 
-![Security Settings](../Screenshots/ad-setup/secure.png)
+![Security Settings](Screenshots/ad-setup/secure.png)
 
 
 ### 8.2 Access Shared Folder from Windows 10 VM
@@ -269,8 +269,8 @@
 
 4. Test permissions by creating a new file
 
-![Shared Access](../Screenshots/ad-setup/folder.png)
-![Shared Access](../Screenshots/ad-setup/folder1.png)
+![Shared Access](Screenshots/ad-setup/folder.png)
+![Shared Access](Screenshots/ad-setup/folder1.png)
 
 
 ## Step 9: Configure and Test Group Policy
@@ -287,7 +287,7 @@
    - Name: `Password Policy`
    - Click `OK`
 
-![New GPO](../Screenshots/ad-setup/gpo.png)
+![New GPO](Screenshots/ad-setup/gpo.png)
 
 
 3. Configure GPO:
@@ -304,7 +304,7 @@
    - Set `Minimum password length` to `8`
    - Click `OK`
 
-![GPO Settings](../Screenshots/ad-setup/policy.png)
+![GPO Settings](Screenshots/ad-setup/policy.png)
 
 
 ### 9.2 Link GPO to Domain
@@ -315,7 +315,7 @@
    - Choose `Password Policy`
    - Click `OK`
 
-![Link GPO](../Screenshots/ad-setup/link.png)
+![Link GPO](Screenshots/ad-setup/link.png)
 
 
 ### 9.3 Apply and Verify GPO
@@ -328,7 +328,7 @@
      gpupdate /force
      ```
 
-![GPO Update](../Screenshots/ad-setup/update.png)
+![GPO Update](Screenshots/ad-setup/update.png)
 
 2. Restart Windows 10 VM
 
@@ -341,7 +341,7 @@
      ```
    - Verify `Password Policy` appears under Applied GPOs
 
-![GPO Result](../Screenshots/ad-setup/apply.png)
+![GPO Result](Screenshots/ad-setup/apply.png)
 
 
 
