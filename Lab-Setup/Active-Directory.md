@@ -1,5 +1,7 @@
 # Active Directory Setup Guide
 
+This guide walks you through setting up **Active Directory (AD)** on **Windows Server 2022**, including promoting the server to a domain controller, creating users, and joining a Windows 10 VM to the domain.
+
 ## Prerequisites
 - Windows Server VM configured (see WindowsServer-VM.md)
 - Static IP address configured
