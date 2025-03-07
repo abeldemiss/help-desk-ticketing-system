@@ -17,7 +17,7 @@
    - Click `Next`
    - Complete the wizard and click `Install`
 
-![AD DS Installation](ad-setup/Screenshot 2025-03-06 182102.png)
+![AD Setup](Screenshots/ad-setup/add-roles.png)
 
 > Screenshot: Add Roles and Features Wizard with Active Directory Domain Services selected
 
