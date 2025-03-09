@@ -57,7 +57,7 @@
 6. Verify IIS Installation:
    - Open web browser
    - Navigate to `http://localhost`
-   - You should see the default IIS welcome page
+   - You should see the default IIS welcome page.
 
 ![IIS Default Page](../Screenshots/ticketing/iis-default.png)
 
