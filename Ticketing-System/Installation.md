@@ -60,7 +60,6 @@
    - You should see the default IIS welcome page
 
 ![IIS Default Page](../Screenshots/ticketing/iis-default.png)
-> Screenshot: IIS default welcome page
 
 ## Additional Resources
 
