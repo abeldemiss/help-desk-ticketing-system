@@ -75,6 +75,9 @@ osTicket requires three main components:
 ![IIS Default Page](/Ticketing-System/Screenshots/Installation/IIS-Test.png)
 > Screenshot: IIS default welcome page showing successful installation
 
+
+
+
 ### Common Issues and Troubleshooting
 
 1. IIS Installation Fails:
@@ -94,19 +97,3 @@ osTicket requires three main components:
 3. Permission Issues:
    - Verify IIS_IUSRS group permissions
    - Check Application Pool identity permissions
-
-## Next Steps
-
-After completing IIS installation:
-1. Install PHP (Section 1.2)
-2. Install MySQL (Section 1.3)
-3. Configure IIS for PHP
-4. Install osTicket
-
-## Additional Resources
-
-- [IIS Official Documentation](https://docs.microsoft.com/en-us/iis)
-- [Windows Server Documentation](https://docs.microsoft.com/en-us/windows-server/)
-- [osTicket Requirements](https://docs.osticket.com/en/latest/Getting%20Started/Installation.html)
-- [PHP for Windows](https://windows.php.net/download/)
-- [MySQL Community Downloads](https://dev.mysql.com/downloads/installer/)
