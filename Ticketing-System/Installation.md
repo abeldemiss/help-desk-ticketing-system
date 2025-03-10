@@ -40,7 +40,7 @@ osTicket requires three main components:
    - Click `Add Features` when prompted for required features
    - Click `Next`
 
-![IIS Role Selection](/Ticketing-System/Screenshots/Installation/iis.png)
+![IIS Role Selection](/Ticketing-System/Screenshots/Installation/IIS.png)
 > Screenshot: Add Roles and Features Wizard with Web Server (IIS) selected
 
 4. Select IIS Features:
@@ -72,7 +72,7 @@ osTicket requires three main components:
    - Navigate to `http://localhost`
    - You should see the default IIS welcome page
 
-![IIS Default Page](/Ticketing-System/Screenshots/Installation/iis-test.png)
+![IIS Default Page](/Ticketing-System/Screenshots/Installation/IIS-Test.png)
 > Screenshot: IIS default welcome page showing successful installation
 
 ### Common Issues and Troubleshooting
