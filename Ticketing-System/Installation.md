@@ -75,9 +75,6 @@ osTicket requires three main components:
 ![IIS Default Page](/Ticketing-System/Screenshots/Installation/IIS-Test.png)
 > Screenshot: IIS default welcome page showing successful installation
 
-
-
-
 ### Common Issues and Troubleshooting
 
 1. IIS Installation Fails:
@@ -97,3 +94,103 @@ osTicket requires three main components:
 3. Permission Issues:
    - Verify IIS_IUSRS group permissions
    - Check Application Pool identity permissions
+
+# Configuring IIS to Use PHP on Windows Server 2022
+---
+
+## Step 1: Install CGI Feature
+1. Open **Server Manager**.
+2. Click **Manage** > **Add Roles and Features**.
+3. Select **Role-based or feature-based installation** and click **Next**.
+4. Select your **server** and click **Next**.
+5. Under **Server Roles**, expand **Web Server (IIS)** > **Application Development**.
+6. Check **CGI** and click **Next** > **Install**.
+
+---
+
+## Step 2: Download and Install PHP
+1. Go to [PHP for Windows](https://windows.php.net/download/).
+2. Download the latest **Non-Thread Safe (NTS) x64** ZIP package.
+3. Extract the ZIP file to `C:\php`.
+4. Rename `php.ini-development` to `php.ini`.
+
+---
+
+## Step 3: Configure `php.ini`
+1. Open `C:\php\php.ini` in Notepad.
+2. Find and modify the following lines:
+
+   ```ini
+   extension_dir = "C:\php\ext"
+   cgi.fix_pathinfo=1
+   ```
+
+3. Enable required extensions by removing `;` before these lines:
+   ```ini
+   extension=curl
+   extension=mbstring
+   extension=exif
+   extension=mysqli
+   extension=openssl
+   ```
+
+4. Save the file.
+
+---
+
+## Step 4: Add PHP to System Environment Variables
+1. Open **System Properties** (`sysdm.cpl` in Run).
+2. Go to **Advanced** > **Environment Variables**.
+3. Under **System variables**, find **Path**, click **Edit**.
+4. Click **New**, then enter:
+   ```
+   C:\php
+   ```
+5. Click **OK** and close.
+
+![IIS Env](/Ticketing-System/Screenshots/Installation/php.png)
+---
+
+## Step 5: Configure IIS to Use PHP
+1. Open **IIS Manager** (`inetmgr` in Run).
+2. Select your **server** in the left panel.
+3. Double-click **Handler Mappings**.
+4. Click **Add Module Mapping...** and enter:
+   - **Request Path:** `*.php`
+   - **Module:** `FastCgiModule`
+   - **Executable:** `C:\php\php-cgi.exe`
+   - **Name:** `PHP via FastCGI`
+5. Click **OK** and confirm.
+
+![Module](/Ticketing-System/Screenshots/Installation/php-iis.png)
+---
+
+## Step 6: Restart IIS
+- Open **Command Prompt (Admin)** and run:
+  ```sh
+  iisreset
+  ```
+
+---
+
+## Step 7: Test PHP in IIS
+1. Navigate to `C:\inetpub\wwwroot\`.
+2. Create a new file `info.php` and add:
+   ```php
+   <?php phpinfo(); ?>
+   ```
+3. Open a browser and go to:
+   ```
+   http://localhost/info.php
+   ```
+4. If PHP is configured correctly, you should see the PHP info page.
+
+---
+
+## Troubleshooting
+- **404 Error:** Ensure `info.php` is saved correctly and IIS is running.
+- **PHP Not Executing:** Check **Handler Mappings** and ensure FastCGI is properly set.
+- **Missing Extensions:** Ensure you downloaded the correct PHP version and enabled extensions in `php.ini`.
+
+---
+
