@@ -187,10 +187,81 @@ osTicket requires three main components:
 
 ---
 
-## Troubleshooting
-- **404 Error:** Ensure `info.php` is saved correctly and IIS is running.
-- **PHP Not Executing:** Check **Handler Mappings** and ensure FastCGI is properly set.
-- **Missing Extensions:** Ensure you downloaded the correct PHP version and enabled extensions in `php.ini`.
+## Install and Configure MySQL
 
+### Step 1: Install MySQL
+
+1. Download MySQL:
+   - Go to [MySQL Downloads](https://dev.mysql.com/downloads/installer/)
+   - Download MySQL Installer for Windows
+
+2. Run MySQL Installer:
+   - Launch the downloaded installer
+   - Select `Custom` setup type
+   - Click `Next`
+
+3. Select Products:
+   - Add `MySQL Server` (latest version)
+   - Add `MySQL Workbench`
+   - Click `Next`
+
+![MySQL Installation](/Ticketing-System/Screenshots/Installation/mysql.png)
+> Screenshot: MySQL Installer setup showing selected components
+
+4. Configure MySQL Server:
+   - Click `Next` through installation requirements
+   - At Type and Networking, keep defaults
+   - At Authentication Method, select `Use Legacy Authentication Method`
+   - Set root password:
+     ```
+     Username: root
+     Password: P@ssw0rd123
+     ```
+   - Note: Use a strong password in production
+   - Create any additional user accounts if needed
+   - Click `Next` through remaining steps
+   - Click `Execute` to install
+
+### Step 2: Create osTicket Database
+
+1. Launch MySQL Workbench:
+   - Start MySQL Workbench from Start menu
+   - Connect to your local MySQL server
+   - Enter root password when prompted
+
+2. Create Database:
+   - Click `Create new schema` button
+   - Enter database details:
+     ```
+     Schema Name: osticket
+     Character Set: utf8
+     Collation: utf8_general_ci
+     ```
+   - Click `Apply`
+   - Click `Apply` again in the confirmation dialog
+   - Click `Finish`
+
+![MySQL Database](/Ticketing-System/Screenshots/Installation/db.png)
+> Screenshot: MySQL Workbench showing the osticket database creation
+
+### Common Issues and Troubleshooting
+
+1. MySQL Installation Fails:
+   - Verify all prerequisites are installed
+   - Check Windows Event Viewer for errors
+   - Ensure no other MySQL instances are running
+
+2. Cannot Connect to MySQL:
+   - Verify MySQL service is running:
+     ```powershell
+     Get-Service MySQL80
+     ```
+   - Check port 3306 is not blocked
+   - Verify credentials are correct
+
+3. Database Creation Issues:
+   - Ensure proper permissions for root user
+   - Check available disk space
+   - Verify character set support
 ---
 
