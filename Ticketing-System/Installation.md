@@ -104,7 +104,7 @@ osTicket requires three main components:
 3. Select **Role-based or feature-based installation** and click **Next**.
 4. Select your **server** and click **Next**.
 5. Under **Server Roles**, expand **Web Server (IIS)** > **Application Development**.
-6. Check **CGI** and click **Next** > **Install**.
+6. Check **CGI** and click **Next** > **Install**
 
 ---
 
