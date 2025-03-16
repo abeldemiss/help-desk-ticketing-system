@@ -262,6 +262,6 @@ osTicket requires three main components:
 3. Database Creation Issues:
    - Ensure proper permissions for root user
    - Check available disk space
-   - Verify character set support
+   - Verify character set support.
 ---
 
