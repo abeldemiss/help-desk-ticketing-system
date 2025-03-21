@@ -229,17 +229,22 @@ osTicket requires three main components:
    - Connect to your local MySQL server
    - Enter root password when prompted
 
-2. Create Database:
-   - Click `Create new schema` button
-   - Enter database details:
+2. Create Database using SQL:
+   - Click the SQL editor tab
+   - Execute the following command to create the database:
+     ```sql
+     CREATE DATABASE osticket;
      ```
-     Schema Name: osticket
-     Character Set: utf8
-     Collation: utf8_general_ci
+
+3. Create a dedicated database user:
+   - In the same SQL editor, execute:
+     ```sql
+     CREATE USER 'osticketuser'@'localhost' IDENTIFIED BY 'yourpassword';
+     GRANT ALL PRIVILEGES ON osticket.* TO 'osticketuser'@'localhost';
+     FLUSH PRIVILEGES;
      ```
-   - Click `Apply`
-   - Click `Apply` again in the confirmation dialog
-   - Click `Finish`
+   - Replace `yourpassword` with a strong password
+   - Note: This creates a dedicated user for osTicket with restricted permissions
 
 ![MySQL Database](/Ticketing-System/Screenshots/Installation/db.png)
 > Screenshot: MySQL Workbench showing the osticket database creation
@@ -263,5 +268,156 @@ osTicket requires three main components:
    - Ensure proper permissions for root user
    - Check available disk space
    - Verify character set support.
----
+
+## Step 3: Install osTicket
+
+### Download and Extract osTicket
+
+1. Download the latest version of osTicket:
+   - Go to [osTicket Downloads](https://osticket.com/download/)
+   - Download the latest version (the .zip file)
+
+2. Extract the osTicket files:
+   - Create a new folder named `osTicket` inside `C:\inetpub\wwwroot\`
+   - Extract the contents of the downloaded ZIP file into this folder
+
+### Access the Installation Page
+
+1. Open your web browser and navigate to:
+   ```
+   http://localhost/osTicket/setup
+   ```
+2. The osTicket installation page should appear with a list of pre-installation checks
+
+![osTicket Setup](/Ticketing-System/Screenshots/Installation/os-install.png)
+> Screenshot: osTicket installation initial page
+
+### Troubleshooting Initial Setup Issues
+
+1. If you see a "Forbidden" error or no page load:
+   - Ensure the wwwroot folder has the correct permissions
+   - Verify that the IIS_IUSRS group has read and execute permissions
+   - Check directory structure is correct (C:\inetpub\wwwroot\osTicket)
+
+2. If the page loads but shows PHP extension errors:
+   - Verify PHP extensions in php.ini (see Step 2 of PHP configuration)
+   - Ensure all required extensions are enabled:
+     ```ini
+     extension=curl
+     extension=mbstring
+     extension=exif
+     extension=mysqli
+     extension=openssl
+     ```
+   - Restart IIS after making changes: `iisreset`
+
+### Configure Database Connection
+
+1. On the installation page, provide database configuration:
+   - Database Name: `osticket`
+   - Database Username: `osticketuser`
+   - Database Password: `yourpassword` (the password you set when creating the user)
+   - Database Host: `localhost`
+   - Click `Install Now`
+
+2. Manual Configuration (Alternative Method):
+   - Navigate to the osTicket directory
+   - Open the file `include/ost-config.php` in a text editor
+   - Update the database settings with your credentials:
+     ```php
+     // Database Configuration
+     define('DBHOST', 'localhost');         // Database Host
+     define('DBNAME', 'osticket');          // Database Name
+     define('DBUSER', 'osticketuser');      // Database Username
+     define('DBPASS', 'yourpassword');      // Database Password
+     ```
+   - Save the file
+
+### Troubleshooting Database Connection Issues
+
+1. Error: "Cannot connect to database" or "Database not found":
+   - Double-check database credentials (username, password, database name)
+   - Ensure MySQL service is running:
+     ```powershell
+     Get-Service MySQL80
+     ```
+   - Check firewall settings for port 3306
+   - Verify MySQL is accepting connections from localhost
+
+### Configure Administrator Settings
+
+1. Provide admin information:
+   - Admin Email: (your email address)
+   - Admin Name: (name for admin user)
+   - Default Email: (system email for notifications)
+
+2. If email configuration fails:
+   - Verify SMTP settings
+   - Check correct port configuration (25, 587, etc.)
+   - Ensure firewall isn't blocking SMTP traffic
+
+### Finalize Installation
+
+1. Complete the installation process:
+   - Click through remaining prompts
+   - When installation completes, you'll see a success message
+
+2. If you encounter errors during final installation:
+   - Check file permissions on osTicket folder
+   - Verify IIS user has write access to the configuration directory
+   - Review PHP error logs in Event Viewer
+
+   ![Complete](/Ticketing-System/Screenshots/Installation/complete.png)
+
+### Post-Installation Security
+
+1. Remove the setup directory:
+   - Delete the `setup` folder from `C:\inetpub\wwwroot\osTicket\`
+   - If unable to delete:
+     ```powershell
+     iisreset /stop
+     # Delete the folder
+     iisreset /start
+     ```
+
+2. Secure the configuration file:
+   - Set read-only permissions on `C:\inetpub\wwwroot\osTicket\include\ost-config.php`
+
+### Verify Installation
+
+1. Access the staff panel:
+   ```
+   http://localhost/osTicket/scp
+   ```
+2. Log in with admin credentials
+3. Create a test ticket to verify functionality
+
+![Admin Login](/Ticketing-System/Screenshots/Installation/admin-login.png)
+> Screenshot: osTicket admin login page
+
+### Common Installation Issues
+
+1. "Missing Extensions" Errors:
+   - Check php.ini for required extensions
+   - Restart IIS after modifying php.ini: `iisreset`
+
+2. File Permission Issues:
+   - Ensure IIS_IUSRS group has appropriate permissions:
+     ```powershell
+     icacls "C:\inetpub\wwwroot\osTicket" /grant "IIS_IUSRS:(OI)(CI)(M)"
+     ```
+
+3. Email Sending Issues:
+   - Verify SMTP configuration
+   - Check for network/firewall restrictions
+   - Test with a simplified mail configuration first
+
+
+## Additional Resources
+
+- [osTicket Documentation](https://docs.osticket.com/)
+- [osTicket Forum](https://forum.osticket.com/)
+- [PHP Documentation](https://www.php.net/docs.php)
+- [MySQL Documentation](https://dev.mysql.com/doc/)
+- [IIS Documentation](https://docs.microsoft.com/en-us/iis/)
 
