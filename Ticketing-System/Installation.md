@@ -392,7 +392,7 @@ osTicket requires three main components:
 2. Log in with admin credentials
 3. Create a test ticket to verify functionality
 
-![Admin Login](/Ticketing-System/Screenshots/Installation/admin-login.png)
+![Admin Login](/Ticketing-System/Screenshots/Installation/admin.png)
 > Screenshot: osTicket admin login page
 
 ### Common Installation Issues
