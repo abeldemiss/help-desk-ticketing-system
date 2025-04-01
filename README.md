@@ -1,4 +1,4 @@
-# Home Lab Help Desk Project
+# Help Desk Ticketing System w/Active Directory Integration
 
 ## Overview
 This project is a comprehensive home lab setup focused on creating a help desk environment with Active Directory integration and a ticketing system. It serves as both a learning platform and a practical demonstration of IT infrastructure management.
