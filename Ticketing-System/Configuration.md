@@ -41,23 +41,26 @@ This guide documents the configuration of osTicket for a professional help desk 
 
 ### Create Support Departments
 
+> **Important Note**: Before assigning department managers, you must first create their staff accounts in osTicket.
+
 1. Create IT Support Department:
    - Navigate to Admin Panel → Agents → Departments
    - Click `Add New Department`
    - Enter Name: `IT Support`
-   - Email: `itsupport@domain.local`
-   - Set Department Manager: `John Doe`
+   - Email: `youremail+itsupport@gmail.com` (Replace with your email)
+   - Set Department Manager: Your admin account
+   - Staff Members: John Doe (Level 1 Support, youremail+itsupport@gmail.com)
    - Define SLA: `Default SLA`
    - Click `Create Dept`
 
 2. Create Additional Departments:
    ```
    Department: Network Operations
-   Email: netops@domain.local
+   Email: youremail+netops@gmail.com (Replace with your email)
    Manager: Jane Smith
    
    Department: System Administration
-   Email: sysadmin@domain.local
+   Email: youremail+sysadmin@gmail.com (Replace with your email)
    Manager: Mike Johnson
    ```
 
@@ -65,6 +68,8 @@ This guide documents the configuration of osTicket for a professional help desk 
    - Assign appropriate staff to each department
    - Set up department email templates and signatures
    - Configure auto-response messages
+
+> **Note**: The email configuration uses plus (+) addressing, which allows all department emails to be routed to your main email inbox while maintaining separate department identities. For example, if your email is example@gmail.com, use example+itsupport@gmail.com for IT Support department.
 
 ![Department Structure](Screenshots/Configuration/departments.png)
 > Screenshot: Department structure showing IT support hierarchy
@@ -78,42 +83,55 @@ This guide documents the configuration of osTicket for a professional help desk 
    - Create the following roles:
      ```
      Role: Level 1 Support
-     Permissions: Create/Edit Tickets, Search Tickets, Create/Edit KB Articles
+     Permissions:
+     - Create (can open tickets for users)
+     - Edit (can edit tickets)
+     - Post Reply (can respond to tickets)
+     - Mark as Answered
      
      Role: Level 2 Support
-     Permissions: All Level 1 + Delete Tickets, Assign Tickets
+     Permissions:
+     - All Level 1 permissions +
+     - Assign (can assign tickets to agents/teams)
+     - Transfer (can move tickets between departments)
+     - Close (can close tickets)
+     - Edit Thread (can edit other agents' responses)
+     - Release (can release ticket assignments)
      
      Role: Administrator
-     Permissions: Full System Access
+     Permissions:
+     - All Level 2 permissions +
+     - Delete (can delete tickets)
+     - Merge (can combine related tickets)
+     - Link (can link related tickets)
+     - Refer (can manage ticket referrals)
      ```
 
-2. Create Staff Accounts:
-   - Navigate to Admin Panel → Agents → Add New
-   - Create accounts for your support staff:
+2. Assign Roles to Staff:
+   - Navigate to Admin Panel → Agents → Directory
+   - Assign roles to existing staff:
      ```
-     Name: John Doe
-     Email: john.doe@domain.local
-     Department: IT Support
-     Role: Administrator
-     
-     Name: Jane Smith
-     Email: jane.smith@domain.local
-     Department: Network Operations
-     Role: Level 2 Support
-     
-     Name: Mike Johnson
-     Email: mike.johnson@domain.local
-     Department: System Administration
-     Role: Level 2 Support
+     Your Admin Account: Administrator Role (use your personal account)
+     Jane Smith: Level 2 Support Role
+     Mike Johnson: Level 2 Support Role
+     John Doe: Level 1 Support Role
      ```
 
 3. Create Support Teams:
    - Navigate to Admin Panel → Agents → Teams
-   - Create Level 1 Support Team
-   - Create Level 2 Support Team
-   - Assign appropriate staff to each team
+   - Create teams and assign staff:
+     ```
+     Team: Level 1 Support Team
+     Members: John Doe, [Your Name]
+     
+     Team: Level 2 Support Team
+     Members: [Your Name], Jane Smith, Mike Johnson
+     ```
+
+> **Note**: For this demo environment, you'll be able to switch between different staff accounts to demonstrate various roles and permissions while all email notifications are routed to your inbox using plus addressing. Create John Doe's account with youremail+jdoe@gmail.com (replace with your email).
 
 ![Staff Roles](Screenshots/Configuration/staff-roles.png)
+![Staff Roles](Screenshots/Configuration/staff-roles1.png)
 > Screenshot: Staff role configuration showing permissions
 
 ## User Directory & Authentication
@@ -126,19 +144,6 @@ This guide documents the configuration of osTicket for a professional help desk 
    - Set Authentication Requirements
    - Configure Password Policy
 
-2. Create Test Users:
-   - Navigate to Agent Panel → Users → Add User
-   - Create test user accounts that match your AD users:
-     ```
-     Name: Test User 1
-     Email: testuser1@domain.local
-     Organization: IT Department
-     
-     Name: Test User 2
-     Email: testuser2@domain.local
-     Organization: Marketing
-     ```
-
 ## Help Topics & Ticket Categories
 
 ### Configure Help Topics
@@ -149,7 +154,7 @@ This guide documents the configuration of osTicket for a professional help desk 
      ```
      Topic: Password Reset
      Department: IT Support
-     Priority: Medium
+     Priority: Normal
      SLA Plan: Default
      
      Topic: Network Connectivity Issues
@@ -162,17 +167,14 @@ This guide documents the configuration of osTicket for a professional help desk 
      Priority: Low
      SLA Plan: Normal
      
-     Topic: Account Access Issues
+     Topic: System Outage
      Department: System Administration
-     Priority: Medium
-     SLA Plan: Default
+     Priority: Emergency
+     SLA Plan: Emergency
      ```
 
-2. Configure Auto-Assignment Rules:
-   - Navigate to Admin Panel → Settings → Tickets
-   - Set auto-assignment based on help topics and departments
-
 ![Help Topics](Screenshots/Configuration/help-topics.png)
+![Help Topics](Screenshots/Configuration/help-topics1.png)
 > Screenshot: Help topics configuration showing priority assignment
 
 ## SLA Plans & Service Management
@@ -184,7 +186,7 @@ This guide documents the configuration of osTicket for a professional help desk 
    - Create the following SLAs:
      ```
      Name: Urgent
-     Grace Period: 1 hour
+     Grace Period: 2 hour
      Schedule: 24/7
      
      Name: High Priority
@@ -199,10 +201,6 @@ This guide documents the configuration of osTicket for a professional help desk 
      Grace Period: 24 hours
      Schedule: Business Hours
      ```
-
-2. Configure Business Hours:
-   - Navigate to Admin Panel → Settings → Business Hours
-   - Set standard business hours (e.g., Monday-Friday, 9am-5pm)
 
 ![SLA Plans](Screenshots/Configuration/sla-plans.png)
 > Screenshot: SLA configuration showing different response time requirements
