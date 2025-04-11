@@ -9,7 +9,6 @@ This guide documents the configuration of osTicket for a professional help desk 
 4. [User Directory & Authentication](#user-directory--authentication)
 5. [Help Topics & Ticket Categories](#help-topics--ticket-categories)
 6. [SLA Plans & Service Management](#sla-plans--service-management)
-7. [Workflow Automation](#workflow-automation)
 
 ## Initial Admin Setup
 

@@ -1,7 +1,7 @@
 # Guide to Set Up osTicket
 
 ## Overview
-This guide will walk you through the installation and configuration of osTicket, a widely-used open source help desk ticketing system. The installation process involves setting up prerequisites (IIS, PHP, and MySQL) and then installing osTicket itself....
+This guide will walk you through the installation and configuration of osTicket, a widely-used open source help desk ticketing system. The installation process involves setting up prerequisites (IIS, PHP, and MySQL) and then installing osTicket itself.
 
 ## Prerequisites
 - Windows Server 2022 VM with Active Directory configured
