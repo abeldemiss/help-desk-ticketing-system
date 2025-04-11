@@ -32,7 +32,6 @@ The foundation of the lab is built using VMware Workstation Pro. This allows for
 
 *   **Setup:** Installation of VMware Workstation Pro and enabling hardware virtualization (VT-x/AMD-V).
     *   See: [`Lab-Setup/Virtualization.md`](Lab-Setup/Virtualization.md)
-    *   ![VMware Installation](Lab-Setup/Screenshots/vmware-install.png)
 *   **Server VM:** A Windows Server 2022 VM (`SRV-DC01`) was created with appropriate resources (RAM, CPU, Disk) and configured with a static IP address. VMware Tools were installed for better integration.
     *   See: [`Lab-Setup/WindowsServer-VM.md`](Lab-Setup/WindowsServer-VM.md)
 *   **Client VM:** A Windows 10 Pro VM was created, configured with NAT networking, and VMware Tools installed. This VM acts as the end-user machine for testing domain joining and accessing the ticketing system.
