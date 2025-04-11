@@ -9,10 +9,7 @@ This guide documents the configuration of osTicket for a professional help desk 
 4. [User Directory & Authentication](#user-directory--authentication)
 5. [Help Topics & Ticket Categories](#help-topics--ticket-categories)
 6. [SLA Plans & Service Management](#sla-plans--service-management)
-7. [Email Integration](#email-integration)
-8. [Knowledge Base Setup](#knowledge-base-setup)
-9. [Active Directory Integration](#active-directory-integration)
-10. [Workflow Automation](#workflow-automation)
+7. [Workflow Automation](#workflow-automation)
 
 ## Initial Admin Setup
 
@@ -205,121 +202,8 @@ This guide documents the configuration of osTicket for a professional help desk 
 ![SLA Plans](Screenshots/Configuration/sla-plans.png)
 > Screenshot: SLA configuration showing different response time requirements
 
-## Email Integration
-
-### Configure Email Settings
-
-1. Configure Email Settings:
-   - Navigate to Admin Panel → Settings → Emails
-   - Configure default system email
-   - Set up outgoing SMTP settings
-
-2. Create Email Templates:
-   - Navigate to Admin Panel → Settings → Templates
-   - Customize ticket creation confirmation
-   - Create response templates
-   - Update ticket update notification template
-
-## Knowledge Base Setup
-
-### Create Knowledge Base Articles
-
-1. Create Categories:
-   - Navigate to Admin Panel → Knowledgebase → Categories
-   - Create categories like "Common Issues", "How-To Guides", "Password Policies"
-
-2. Add Articles:
-   - Navigate to Staff Panel → Knowledgebase → Add New
-   - Create articles for common issues:
-     ```
-     Title: How to Reset Your Password
-     Category: How-To Guides
-     Visibility: Public
-     
-     Title: Connecting to the VPN
-     Category: How-To Guides
-     Visibility: Public
-     
-     Title: Requesting Software Installation
-     Category: How-To Guides
-     Visibility: Public
-     ```
-
-3. Format Articles:
-   - Use clear headings and subheadings
-   - Include step-by-step instructions
-   - Add screenshots where helpful
-
-![Knowledge Base](Screenshots/Configuration/knowledge-base.png)
-> Screenshot: Knowledge base article showing formatting and step-by-step instructions
-
-## Active Directory Integration
-
-### Configure LDAP Authentication
-
-1. Set Up LDAP Authentication:
-   - Navigate to Admin Panel → Settings → Authentication
-   - Enable LDAP authentication
-   - Configure LDAP server settings:
-     ```
-     LDAP Host: 192.168.1.10 (Your DC IP)
-     LDAP Port: 389
-     LDAP Protocol Version: 3
-     Base DN: DC=domain,DC=local
-     LDAP Filter: (&(objectCategory=person)(objectClass=user))
-     Bind DN: CN=Administrator,CN=Users,DC=domain,DC=local
-     Bind Password: [your password]
-     ```
-   - Test LDAP connection
-
-2. Configure User Synchronization:
-   - Set up user attribute mapping
-   - Configure group synchronization
-   - Set automatic account creation for AD users
-
-![LDAP Integration](Screenshots/Configuration/ldap-config.png)
-> Screenshot: LDAP configuration settings for Active Directory integration
-
-## Workflow Automation
-
-### Configure Automatic Actions
-
-1. Create Ticket Filters:
-   - Navigate to Admin Panel → Manage → Filters
-   - Create filter for password reset auto-response
-   - Create filter for after-hours notifications
-   - Create filter for high-priority ticket escalation
-
-2. Configure Canned Responses:
-   - Navigate to Admin Panel → Agents → Canned Responses
-   - Create common responses for:
-     - Password reset instructions
-     - Network troubleshooting steps
-     - Service request acknowledgment
-     - Resolution confirmation
-
-3. Set Up Ticket Auto-Assignment:
-   - Configure rules based on ticket categories
-   - Set up round-robin assignment within teams
-   - Configure escalation for SLA violations
-
-![Automation Rules](Screenshots/Configuration/automation.png)
-> Screenshot: Ticket automation rules showing workflow configuration
-
-## Testing the Configuration
-
-1. Create a test ticket from the user portal
-2. Process the ticket through its lifecycle:
-   - Assignment
-   - Response
-   - Resolution
-   - Closure
-3. Verify email notifications are sending correctly
-4. Confirm SLA timers are functioning properly
-5. Test knowledge base search functionality
-
 ---
 
-This configuration establishes a professional help desk environment with streamlined workflows, proper escalation paths, and integration with Active Directory. The system is designed to efficiently manage and resolve IT support issues while maintaining service level agreements.
+This configuration establishes a professional help desk environment with streamlined workflows and proper escalation paths. The system is designed to efficiently manage and resolve IT support issues while maintaining service level agreements.
 
 For detailed information about using the system, see [Sample-Tickets.md](/Ticketing-System/Sample-Tickets.md) for examples of common support scenarios and their resolutions.
