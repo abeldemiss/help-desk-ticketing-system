@@ -55,26 +55,3 @@ This section will demonstrate common ticket scenarios following these general st
     ![Resolved Ticket Status](Screenshots/Sample/resolved-status.png)
     *   The user confirms they can log in.
     *   The ticket is eventually closed.
-
-## Sample Ticket 2: Network Connectivity Issue
-
-*   **Scenario:** A user reports being unable to access network resources.
-*   **Intake:**
-    *   User submits ticket via the portal, selecting "Network Connectivity Issues".
-*   **Assignment and Communication:**
-    *   Ticket automatically assigned to "Network Operations" department.
-    *   Jane Smith (Level 2 Support) is assigned or claims the ticket.
-    *   Jane communicates with the user to gather more details (e.g., specific error messages, what resources are inaccessible).
-*   **Working the Issue:**
-    *   Jane performs troubleshooting steps:
-        *   Checks user's IP configuration.
-        *   Pings relevant gateways/servers from the user's machine (if possible via remote tools) or instructs the user.
-        *   Checks network switch status/port configuration.
-        *   Investigates potential DNS issues.
-    *   Jane documents findings in the ticket.
-*   **Resolution:**
-    *   Jane identifies the issue (e.g., incorrect DNS setting on the user's machine).
-    *   Jane provides instructions or remotely corrects the setting.
-    *   Jane confirms with the user that connectivity is restored.
-    *   Jane sets the ticket status to "Resolved" and adds resolution details.
-    *   Ticket is closed.
