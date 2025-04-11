@@ -1,4 +1,4 @@
-# Home Lab Help Desk & Active Directory Project
+# Help Desk Ticketing System & Active Directory Project
 
 ## Overview
 
