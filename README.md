@@ -10,7 +10,7 @@ The primary goals are:
 *   To deploy and customize the osTicket ticketing system for managing IT support requests.
 *   To illustrate common IT support workflows, from ticket intake to resolution.
 
-This repository serves as documentation for the setup process and can be used to quickly understand the project's architecture and the skills involved.
+This repository serves as documentation for the setup process and can be used to quickly understand the project's architecture and the skills involved..
 
 ## Technologies Used
 
