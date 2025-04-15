@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project demonstrates the setup and configuration of a functional IT help desk environment within a home lab. It showcases the integration of core IT infrastructure components, including virtualization, Windows Server administration with Active Directory, and a ticketing system (osTicket).
+This project demonstrates the setup and configuration of a functional IT help desk environment within a home lab. It showcases the integration of core IT infrastructure components, including virtualization, Windows Server administration with Active Directory, and a ticketing system (osTicket)..
 
 The primary goals are:
 *   To build a virtualized lab environment simulating a small business network.
@@ -10,7 +10,7 @@ The primary goals are:
 *   To deploy and customize the osTicket ticketing system for managing IT support requests.
 *   To illustrate common IT support workflows, from ticket intake to resolution.
 
-This repository serves as documentation for the setup process and can be used to quickly understand the project's architecture and the skills involved..
+This repository serves as documentation for the setup process and can be used to quickly understand the project's architecture and the skills involved.
 
 ## Technologies Used
 
