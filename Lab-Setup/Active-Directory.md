@@ -347,10 +347,6 @@ This guide walks you through setting up **Active Directory (AD)** on **Windows S
 
 
 
-## Additional Resources
+## Resources
 
 - [Active Directory Documentation](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/active-directory-domain-services)
-- [Group Policy Documentation](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/group-policy-basics)
-- [AD Best Practices](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory)
-- [File Server Documentation](https://docs.microsoft.com/en-us/windows-server/storage/file-server/file-server-management)
-- [Group Policy Best Practices](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/implementing-secure-administrative-hosts)
